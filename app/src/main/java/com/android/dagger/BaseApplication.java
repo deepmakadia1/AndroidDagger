@@ -1,7 +1,5 @@
 package com.android.dagger;
 
-
-
 import com.android.dagger.di.component.DaggerAppComponent;
 
 import dagger.android.AndroidInjector;
