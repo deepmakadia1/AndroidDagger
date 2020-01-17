@@ -5,6 +5,7 @@ import com.android.dagger.ui.CategoryListActivity;
 import com.android.dagger.ui.DetailDrinksActivity;
 import com.android.dagger.ui.DrinkListActivity;
 import com.android.dagger.ui.DrinksActivity;
+import com.android.dagger.ui.FoodActivity;
 import com.android.dagger.ui.MainActivity;
 
 import dagger.Module;
@@ -27,4 +28,7 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = {DrinksViewModelModule.class})
     abstract DetailDrinksActivity detailDrinksActivity();
+
+    @ContributesAndroidInjector(modules = {FoodViewModelModule.class})
+    abstract FoodActivity foodActivity();
 }

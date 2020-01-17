@@ -33,6 +33,9 @@ public class MainActivity extends DaggerAppCompatActivity implements View.OnClic
             case R.id.drinks:
                 startActivity(new Intent(this,DrinksActivity.class));
                 break;
+            case R.id.food:
+                startActivity(new Intent(this,FoodActivity.class));
+                break;
         }
     }
 }
