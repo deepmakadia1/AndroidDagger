@@ -1,6 +1,6 @@
 package com.android.dagger.di.modules;
 
-import com.android.dagger.viewmodel.ViewModelProviderFactory;
+import com.android.dagger.viewmodel.factory.ViewModelProviderFactory;
 
 import androidx.lifecycle.ViewModelProvider;
 import dagger.Binds;

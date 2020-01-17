@@ -1,4 +1,4 @@
-package com.android.dagger.viewmodel;
+package com.android.dagger.viewmodel.factory;
 
 import java.util.Map;
 

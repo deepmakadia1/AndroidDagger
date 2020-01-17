@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 
-import com.android.dagger.viewmodel.ViewModelProviderFactory;
+import com.android.dagger.viewmodel.factory.ViewModelProviderFactory;
 
 import javax.annotation.Nullable;
 import javax.inject.Inject;
