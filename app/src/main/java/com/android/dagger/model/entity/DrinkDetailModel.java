@@ -4,8 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class DrinkDetailModel {
+import androidx.annotation.Keep;
 
+@Keep
+public class DrinkDetailModel {
 
     @SerializedName("drinks")
     private List<Drink> drinks;

@@ -1,6 +1,5 @@
 package com.android.dagger.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -10,19 +9,13 @@ import com.android.dagger.databinding.ActivityCategoryListBinding;
 import com.android.dagger.model.entity.DrinkCategoryListModel;
 import com.android.dagger.util.Constants;
 import com.android.dagger.viewmodel.DrinkCategoryListViewModel;
-import com.android.dagger.viewmodel.ViewModelProviderFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.annotation.Nullable;
-import javax.inject.Inject;
-
-import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import dagger.android.support.DaggerAppCompatActivity;
 
 public class CategoryListActivity extends BaseActivity<ActivityCategoryListBinding,DrinkCategoryListViewModel> {
 

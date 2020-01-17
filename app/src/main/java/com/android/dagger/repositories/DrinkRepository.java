@@ -24,7 +24,7 @@ public class DrinkRepository {
 
 
     @Inject
-    public DrinkRepository(DrinkServiceInterface drinkServiceInterface) {
+    DrinkRepository(DrinkServiceInterface drinkServiceInterface) {
         this.drinkServiceInterface = drinkServiceInterface;
     }
 
