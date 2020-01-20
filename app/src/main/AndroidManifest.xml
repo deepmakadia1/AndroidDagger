@@ -22,7 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.DrinksActivity"/>
         <activity android:name=".ui.activity.CategoryListActivity"/>
         <activity android:name=".ui.activity.DetailDrinksActivity"/>
         <activity android:name=".ui.activity.RecipeActivity"/>
