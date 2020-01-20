@@ -15,18 +15,19 @@
         android:theme="@style/AppTheme"
         android:fullBackupContent="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.DrinksActivity"/>
-        <activity android:name=".ui.CategoryListActivity"/>
-        <activity android:name=".ui.DrinkListActivity"/>
-        <activity android:name=".ui.DetailDrinksActivity"/>
-        <activity android:name=".ui.FoodActivity"/>
+        <activity android:name=".ui.activity.DrinksActivity"/>
+        <activity android:name=".ui.activity.CategoryListActivity"/>
+        <activity android:name=".ui.activity.DrinkListActivity"/>
+        <activity android:name=".ui.activity.DetailDrinksActivity"/>
+        <activity android:name=".ui.activity.FoodActivity"/>
+        <activity android:name=".ui.activity.DetailRecipeActivity"/>
     </application>
 
 </manifest>

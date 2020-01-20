@@ -10,8 +10,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 public class ViewModelProviderFactory implements ViewModelProvider.Factory {
 
-    private static final String TAG = "ViewModelProviderFactor";
-
     private final Map<Class<? extends ViewModel>, Provider<ViewModel>> creators;
 
     @Inject

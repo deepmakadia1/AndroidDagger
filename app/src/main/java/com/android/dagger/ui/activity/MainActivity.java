@@ -1,6 +1,5 @@
-package com.android.dagger.ui;
+package com.android.dagger.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import dagger.android.support.DaggerAppCompatActivity;
 

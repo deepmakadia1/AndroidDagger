@@ -1,6 +1,7 @@
 package com.android.dagger.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,8 @@ import android.view.ViewGroup;
 import com.android.dagger.R;
 import com.android.dagger.databinding.ItemRecipeBinding;
 import com.android.dagger.model.entity.RecipeModel;
+import com.android.dagger.ui.activity.DetailRecipeActivity;
+import com.android.dagger.util.Constants;
 
 import java.util.List;
 
@@ -55,7 +58,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    context.startActivity(new Intent(context, DetailRecipeActivity.class).putExtra(Constants.MEAL_ID, meals.get(getAdapterPosition()).getIdMeal()));
+                    context.startActivity(new Intent(context, DetailRecipeActivity.class).putExtra(Constants.MEAL_ID, meals.get(getAdapterPosition()).getIdMeal()));
                 }
             });
         }

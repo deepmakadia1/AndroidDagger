@@ -1,4 +1,4 @@
-package com.android.dagger.ui;
+package com.android.dagger.ui.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;

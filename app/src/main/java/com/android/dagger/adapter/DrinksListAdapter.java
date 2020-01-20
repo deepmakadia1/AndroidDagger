@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.android.dagger.R;
 import com.android.dagger.databinding.ItemDrinksBinding;
 import com.android.dagger.model.entity.DrinkListModel;
-import com.android.dagger.ui.DetailDrinksActivity;
+import com.android.dagger.ui.activity.DetailDrinksActivity;
 import com.android.dagger.util.Constants;
 
 import java.util.List;

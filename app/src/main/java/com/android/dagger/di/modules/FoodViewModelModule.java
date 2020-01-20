@@ -6,6 +6,7 @@ import com.android.dagger.model.state.RecipeServiceInterface;
 import com.android.dagger.util.Constants;
 import com.android.dagger.viewmodel.CategoryFragmentViewModel;
 import com.android.dagger.viewmodel.DetailDrinkActivityViewModel;
+import com.android.dagger.viewmodel.DetailRecipeActivityViewModel;
 import com.android.dagger.viewmodel.FoodActivityViewModel;
 
 import androidx.lifecycle.ViewModel;
@@ -30,6 +31,11 @@ public abstract class FoodViewModelModule {
     @IntoMap
     @ViewModelKey(CategoryFragmentViewModel.class)
     public abstract ViewModel proviewCategoryFragmentViewModel (CategoryFragmentViewModel categoryFragmentViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailRecipeActivityViewModel.class)
+    public abstract ViewModel proviewDetailRecipeActivityViewModel (DetailRecipeActivityViewModel detailRecipeActivityViewModel);
 
     @Provides
     static Retrofit provideFoodRetrofit(GsonConverterFactory gsonConverterFactory, RxJava2CallAdapterFactory rxJava2CallAdapterFactory, OkHttpClient okHttpClient) {

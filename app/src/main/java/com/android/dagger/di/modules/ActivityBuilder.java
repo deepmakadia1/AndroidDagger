@@ -1,12 +1,13 @@
 package com.android.dagger.di.modules;
 
-import com.android.dagger.di.modules.DrinksViewModelModule;
-import com.android.dagger.ui.CategoryListActivity;
-import com.android.dagger.ui.DetailDrinksActivity;
-import com.android.dagger.ui.DrinkListActivity;
-import com.android.dagger.ui.DrinksActivity;
-import com.android.dagger.ui.FoodActivity;
-import com.android.dagger.ui.MainActivity;
+import com.android.dagger.di.providers.CategoryFragmentProvider;
+import com.android.dagger.ui.activity.CategoryListActivity;
+import com.android.dagger.ui.activity.DetailDrinksActivity;
+import com.android.dagger.ui.activity.DetailRecipeActivity;
+import com.android.dagger.ui.activity.DrinkListActivity;
+import com.android.dagger.ui.activity.DrinksActivity;
+import com.android.dagger.ui.activity.FoodActivity;
+import com.android.dagger.ui.activity.MainActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -29,6 +30,9 @@ public abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = {DrinksViewModelModule.class})
     abstract DetailDrinksActivity detailDrinksActivity();
 
-    @ContributesAndroidInjector(modules = {FoodViewModelModule.class})
+    @ContributesAndroidInjector(modules = {FoodViewModelModule.class, CategoryFragmentProvider.class})
     abstract FoodActivity foodActivity();
+
+    @ContributesAndroidInjector(modules = FoodViewModelModule.class)
+    abstract DetailRecipeActivity detailRecipeActivity();
 }

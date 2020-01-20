@@ -1,13 +1,13 @@
-package com.android.dagger.ui;
+package com.android.dagger.ui.activity;
 
 import android.os.Bundle;
 import android.view.View;
 
 import com.android.dagger.R;
-import com.android.dagger.databinding.ActivityDetailDrinksBinding;
-import com.android.dagger.model.entity.DrinkDetailModel;
+import com.android.dagger.databinding.ActivityDetailRecipeBinding;
+import com.android.dagger.model.entity.RecipeDetailModel;
 import com.android.dagger.util.Constants;
-import com.android.dagger.viewmodel.DetailDrinkActivityViewModel;
+import com.android.dagger.viewmodel.DetailRecipeActivityViewModel;
 
 import java.util.ArrayList;
 
@@ -15,23 +15,23 @@ import javax.annotation.Nullable;
 
 import androidx.lifecycle.Observer;
 
-public class DetailDrinksActivity extends BaseActivity<ActivityDetailDrinksBinding, DetailDrinkActivityViewModel> {
+public class DetailRecipeActivity extends BaseActivity<ActivityDetailRecipeBinding, DetailRecipeActivityViewModel> {
 
     @Override
     public int getLayout() {
-        return R.layout.activity_detail_drinks;
+        return R.layout.activity_detail_recipe;
     }
 
     @Override
-    public Class<DetailDrinkActivityViewModel> getViewModel() {
-        return DetailDrinkActivityViewModel.class;
+    public Class<DetailRecipeActivityViewModel> getViewModel() {
+        return DetailRecipeActivityViewModel.class;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        viewModel.getProcess().observe(this, new Observer<Boolean>() {
+        viewModel.getProgress().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean aBoolean) {
                 if (aBoolean != null && aBoolean) {
@@ -44,14 +44,15 @@ public class DetailDrinksActivity extends BaseActivity<ActivityDetailDrinksBindi
             }
         });
 
-        viewModel.getDrink(getIntent().getStringExtra(Constants.DRINK_ID)).observe(this, new Observer<ArrayList<DrinkDetailModel.Drink>>() {
+        viewModel.getMeals(getIntent().getStringExtra(Constants.MEAL_ID)).observe(this, new Observer<ArrayList<RecipeDetailModel.Meals>>() {
             @Override
-            public void onChanged(@Nullable ArrayList<DrinkDetailModel.Drink> drinks) {
-                if (drinks != null) {
-                    binding.setDrink(drinks.get(0));
+            public void onChanged(@Nullable ArrayList<RecipeDetailModel.Meals> meals) {
+                if (meals != null) {
+                    binding.setMeal(meals.get(0));
                 }
             }
         });
+
 
     }
 }
