@@ -3,11 +3,11 @@ package com.android.dagger.ui.activity;
 import android.os.Bundle;
 
 import com.android.dagger.R;
-import com.android.dagger.adapter.RecipePagerAdapter;
-import com.android.dagger.databinding.ActivityFoodBinding;
+import com.android.dagger.adapter.CustomPagerAdapter;
+import com.android.dagger.databinding.ActivityRecipeBinding;
 import com.android.dagger.model.entity.RecipeCategoryModel;
-import com.android.dagger.ui.fragment.CategoryFragment;
-import com.android.dagger.viewmodel.FoodActivityViewModel;
+import com.android.dagger.ui.fragment.RecipeCategoryFragment;
+import com.android.dagger.viewmodel.RecipeActivityViewModel;
 
 import java.util.List;
 
@@ -15,25 +15,25 @@ import javax.annotation.Nullable;
 
 import androidx.lifecycle.Observer;
 
-public class FoodActivity extends BaseActivity<ActivityFoodBinding, FoodActivityViewModel> {
+public class RecipeActivity extends BaseActivity<ActivityRecipeBinding, RecipeActivityViewModel> {
 
-    private RecipePagerAdapter pagerAdapter;
+    private CustomPagerAdapter pagerAdapter;
 
     @Override
     public int getLayout() {
-        return R.layout.activity_food;
+        return R.layout.activity_recipe;
     }
 
     @Override
-    public Class<FoodActivityViewModel> getViewModel() {
-        return FoodActivityViewModel.class;
+    public Class<RecipeActivityViewModel> getViewModel() {
+        return RecipeActivityViewModel.class;
     }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pagerAdapter = new RecipePagerAdapter(getSupportFragmentManager());
+        pagerAdapter = new CustomPagerAdapter(getSupportFragmentManager());
         viewModel.getProgress().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean aBoolean) {
@@ -57,7 +57,7 @@ public class FoodActivity extends BaseActivity<ActivityFoodBinding, FoodActivity
 
     private void setupViewPager(List<RecipeCategoryModel.Categories> categories) {
         for (RecipeCategoryModel.Categories category : categories) {
-            pagerAdapter.addFragment(CategoryFragment.newInstance(category.getStrCategory()), category.getStrCategory());
+            pagerAdapter.addFragment(RecipeCategoryFragment.newInstance(category.getStrCategory()), category.getStrCategory());
         }
         binding.pagerCategory.setAdapter(pagerAdapter);
         binding.tabCategory.setupWithViewPager(binding.pagerCategory);

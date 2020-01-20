@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-public class RecipePagerAdapter extends FragmentPagerAdapter {
+public class CustomPagerAdapter extends FragmentPagerAdapter {
 
     private final List<Fragment> fragments = new ArrayList<>();
     private final List<String> titleLists = new ArrayList<>();
@@ -20,7 +20,7 @@ public class RecipePagerAdapter extends FragmentPagerAdapter {
         titleLists.add(title);
     }
 
-    public RecipePagerAdapter(FragmentManager fm) {
+    public CustomPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -38,5 +38,10 @@ public class RecipePagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         return titleLists.get(position);
+    }
+
+    public void clearList() {
+        fragments.clear();
+        titleLists.clear();
     }
 }

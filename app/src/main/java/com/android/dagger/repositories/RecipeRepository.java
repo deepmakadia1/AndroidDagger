@@ -13,7 +13,7 @@ import javax.inject.Inject;
 
 import androidx.lifecycle.MutableLiveData;
 
-public class FoodRepository {
+public class RecipeRepository {
 
     //Categories list Api call
     private ArrayList<RecipeCategoryModel.Categories> categories = new ArrayList<>();
@@ -24,7 +24,7 @@ public class FoodRepository {
     private RecipeServiceInterface recipeServiceInterface;
 
     @Inject
-    FoodRepository(RecipeServiceInterface recipeServiceInterface) {
+    RecipeRepository(RecipeServiceInterface recipeServiceInterface) {
         this.recipeServiceInterface = recipeServiceInterface;
     }
 

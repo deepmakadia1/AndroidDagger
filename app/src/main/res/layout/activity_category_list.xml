@@ -3,10 +3,74 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_category"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.activity.CategoryListActivity"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabMode="scrollable" />
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/pager_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/menu_sort"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            app:menu_icon="@drawable/ic_filter"
+            app:menu_backgroundColor="#ccffffff">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/menu_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_label="@string/categories"
+                android:src="@drawable/ic_categories"
+                app:fab_size="mini" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/menu_glasses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_label="@string/glasses"
+                android:src="@drawable/ic_glasses"
+                app:fab_size="mini" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/menu_ingredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_label="@string/ingredients"
+                android:src="@drawable/ic_ingredients"
+                app:fab_size="mini" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/menu_alcoholic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_label="@string/alcohol"
+                android:src="@drawable/ic_alcohol"
+                app:fab_size="mini" />
+
+        </com.github.clans.fab.FloatingActionMenu>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 </layout>

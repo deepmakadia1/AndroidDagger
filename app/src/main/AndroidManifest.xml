@@ -24,9 +24,8 @@
         </activity>
         <activity android:name=".ui.activity.DrinksActivity"/>
         <activity android:name=".ui.activity.CategoryListActivity"/>
-        <activity android:name=".ui.activity.DrinkListActivity"/>
         <activity android:name=".ui.activity.DetailDrinksActivity"/>
-        <activity android:name=".ui.activity.FoodActivity"/>
+        <activity android:name=".ui.activity.RecipeActivity"/>
         <activity android:name=".ui.activity.DetailRecipeActivity"/>
     </application>
 

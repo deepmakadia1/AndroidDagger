@@ -5,7 +5,7 @@ import com.android.dagger.model.state.DrinkServiceInterface;
 import com.android.dagger.util.Constants;
 import com.android.dagger.viewmodel.DetailDrinkActivityViewModel;
 import com.android.dagger.viewmodel.DrinkCategoryListViewModel;
-import com.android.dagger.viewmodel.DrinkListActivityViewModel;
+import com.android.dagger.viewmodel.DrinkListFragmentViewModel;
 
 import androidx.lifecycle.ViewModel;
 import dagger.Binds;
@@ -27,8 +27,8 @@ public abstract class DrinksViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(DrinkListActivityViewModel.class)
-    public abstract ViewModel proviewDrinkListActivityViewModel (DrinkListActivityViewModel drinkListActivityViewModel);
+    @ViewModelKey(DrinkListFragmentViewModel.class)
+    public abstract ViewModel proviewDrinkListFragmentViewModel (DrinkListFragmentViewModel drinkListFragmentViewModel);
 
     @Binds
     @IntoMap

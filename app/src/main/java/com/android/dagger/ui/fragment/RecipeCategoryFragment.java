@@ -14,26 +14,24 @@ import com.android.dagger.viewmodel.CategoryFragmentViewModel;
 import java.util.List;
 
 import javax.annotation.Nullable;
-import javax.inject.Inject;
 
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-public class CategoryFragment extends BaseFragment<FragmentCategoryBinding, CategoryFragmentViewModel>{
+public class RecipeCategoryFragment extends BaseFragment<FragmentCategoryBinding, CategoryFragmentViewModel>{
 
     private Context context;
 
-    public CategoryFragment() {
+    public RecipeCategoryFragment() {
         // Required empty public constructor
     }
 
-    public static CategoryFragment newInstance(String categoryName) {
-        CategoryFragment categoryFragment = new CategoryFragment();
+    public static RecipeCategoryFragment newInstance(String categoryName) {
+        RecipeCategoryFragment recipeCategoryFragment = new RecipeCategoryFragment();
         Bundle args = new Bundle();
-        args.putString(Constants.CATEGORY_NAME, categoryName);
-        categoryFragment.setArguments(args);
-        return categoryFragment;
+        args.putString(Constants.RECIPE_CATEGORY_NAME, categoryName);
+        recipeCategoryFragment.setArguments(args);
+        return recipeCategoryFragment;
     }
 
 
@@ -51,7 +49,7 @@ public class CategoryFragment extends BaseFragment<FragmentCategoryBinding, Cate
     @Override
     public void onCreateView() {
 
-        String categoryName = getArguments() != null ? getArguments().getString(Constants.CATEGORY_NAME) : null;
+        String categoryName = getArguments() != null ? getArguments().getString(Constants.RECIPE_CATEGORY_NAME) : null;
 
         viewModel.getProgress().observe(this, new Observer<Boolean>() {
             @Override

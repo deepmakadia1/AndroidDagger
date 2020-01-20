@@ -16,11 +16,11 @@
             app:cardUseCompatPadding="true">
 
             <TextView
-                android:id="@+id/food"
+                android:id="@+id/recipe"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/food"
+                android:text="@string/recipe"
                 android:textSize="@dimen/recipe_title_text_size" />
 
         </androidx.cardview.widget.CardView>

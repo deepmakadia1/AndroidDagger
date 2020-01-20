@@ -2,7 +2,7 @@ package com.android.dagger.viewmodel;
 
 
 import com.android.dagger.model.entity.RecipeModel;
-import com.android.dagger.repositories.FoodRepository;
+import com.android.dagger.repositories.RecipeRepository;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -13,19 +13,19 @@ import androidx.lifecycle.ViewModel;
 public class CategoryFragmentViewModel extends ViewModel {
 
 
-    private FoodRepository foodRepository;
+    private RecipeRepository recipeRepository;
 
     @Inject
-    public CategoryFragmentViewModel(FoodRepository foodRepository) {
-        this.foodRepository = foodRepository;
+    public CategoryFragmentViewModel(RecipeRepository recipeRepository) {
+        this.recipeRepository = recipeRepository;
     }
 
     public LiveData<List<RecipeModel.Recipe>> getRecipeList(String categoryName){
-        return foodRepository.getMutableLiveDataRecipesList(categoryName);
+        return recipeRepository.getMutableLiveDataRecipesList(categoryName);
     }
 
     public LiveData<Boolean> getProgress(){
-        return foodRepository.getMutableProgress();
+        return recipeRepository.getMutableProgress();
     }
 
 }
