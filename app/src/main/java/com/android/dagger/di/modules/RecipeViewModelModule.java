@@ -38,7 +38,7 @@ public abstract class RecipeViewModelModule {
     @Provides
     static Retrofit provideRecipeRetrofit(GsonConverterFactory gsonConverterFactory, RxJava2CallAdapterFactory rxJava2CallAdapterFactory, OkHttpClient okHttpClient) {
         return new Retrofit.Builder()
-                .baseUrl(Constants.Recipe_BASE_URL)
+                .baseUrl(Constants.RECIPE_BASE_URL)
                 .client(okHttpClient)
                 .addConverterFactory(gsonConverterFactory)
                 .addCallAdapterFactory(rxJava2CallAdapterFactory)
