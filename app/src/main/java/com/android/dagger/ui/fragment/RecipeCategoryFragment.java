@@ -9,7 +9,7 @@ import com.android.dagger.adapter.RecipeListAdapter;
 import com.android.dagger.databinding.FragmentCategoryBinding;
 import com.android.dagger.model.entity.RecipeModel;
 import com.android.dagger.util.Constants;
-import com.android.dagger.viewmodel.CategoryFragmentViewModel;
+import com.android.dagger.viewmodel.RecipeCategoryFragmentViewModel;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-public class RecipeCategoryFragment extends BaseFragment<FragmentCategoryBinding, CategoryFragmentViewModel>{
+public class RecipeCategoryFragment extends BaseFragment<FragmentCategoryBinding, RecipeCategoryFragmentViewModel>{
 
     private Context context;
 
@@ -41,8 +41,8 @@ public class RecipeCategoryFragment extends BaseFragment<FragmentCategoryBinding
     }
 
     @Override
-    public Class<CategoryFragmentViewModel> getViewModel() {
-        return CategoryFragmentViewModel.class;
+    public Class<RecipeCategoryFragmentViewModel> getViewModel() {
+        return RecipeCategoryFragmentViewModel.class;
     }
 
 

@@ -5,11 +5,11 @@ import android.view.View;
 
 import com.android.dagger.R;
 import com.android.dagger.adapter.CustomPagerAdapter;
-import com.android.dagger.databinding.ActivityCategoryListBinding;
+import com.android.dagger.databinding.ActivityDrinkBinding;
 import com.android.dagger.model.entity.DrinkCategoryListModel;
 import com.android.dagger.ui.fragment.DrinkCategoryFragment;
 import com.android.dagger.util.Constants;
-import com.android.dagger.viewmodel.DrinkCategoryListViewModel;
+import com.android.dagger.viewmodel.DrinkActivityViewModel;
 import com.github.clans.fab.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 import androidx.lifecycle.Observer;
 
 
-public class CategoryListActivity extends BaseActivity<ActivityCategoryListBinding, DrinkCategoryListViewModel> implements View.OnClickListener {
+public class DrinkActivity extends BaseActivity<ActivityDrinkBinding, DrinkActivityViewModel> implements View.OnClickListener {
 
     private HashMap<String, String> map = new HashMap<>();
     private CustomPagerAdapter pagerAdapter;
@@ -29,12 +29,12 @@ public class CategoryListActivity extends BaseActivity<ActivityCategoryListBindi
 
     @Override
     public int getLayout() {
-        return R.layout.activity_category_list;
+        return R.layout.activity_drink;
     }
 
     @Override
-    public Class<DrinkCategoryListViewModel> getViewModel() {
-        return DrinkCategoryListViewModel.class;
+    public Class<DrinkActivityViewModel> getViewModel() {
+        return DrinkActivityViewModel.class;
     }
 
     @Override

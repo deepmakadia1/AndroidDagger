@@ -2,7 +2,7 @@ package com.android.dagger.di.modules;
 
 import com.android.dagger.di.providers.DrinkCategoryFragmentProvider;
 import com.android.dagger.di.providers.RecipeCategoryFragmentProvider;
-import com.android.dagger.ui.activity.CategoryListActivity;
+import com.android.dagger.ui.activity.DrinkActivity;
 import com.android.dagger.ui.activity.DetailDrinksActivity;
 import com.android.dagger.ui.activity.DetailRecipeActivity;
 import com.android.dagger.ui.activity.RecipeActivity;
@@ -18,7 +18,7 @@ public abstract class ActivityBuilder {
     abstract MainActivity mainActivity();
 
     @ContributesAndroidInjector(modules = {DrinksViewModelModule.class, DrinkCategoryFragmentProvider.class})
-    abstract CategoryListActivity categoryListActivity();
+    abstract DrinkActivity drinkActivity();
 
     @ContributesAndroidInjector(modules = {DrinksViewModelModule.class})
     abstract DetailDrinksActivity detailDrinksActivity();

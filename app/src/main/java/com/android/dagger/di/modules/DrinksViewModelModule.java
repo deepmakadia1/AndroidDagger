@@ -4,8 +4,8 @@ import com.android.dagger.di.annotation.ViewModelKey;
 import com.android.dagger.model.state.DrinkServiceInterface;
 import com.android.dagger.util.Constants;
 import com.android.dagger.viewmodel.DetailDrinkActivityViewModel;
-import com.android.dagger.viewmodel.DrinkCategoryListViewModel;
-import com.android.dagger.viewmodel.DrinkListFragmentViewModel;
+import com.android.dagger.viewmodel.DrinkActivityViewModel;
+import com.android.dagger.viewmodel.DrinkCategoryFragmentViewModel;
 
 import androidx.lifecycle.ViewModel;
 import dagger.Binds;
@@ -22,13 +22,13 @@ public abstract class DrinksViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(DrinkCategoryListViewModel.class)
-    public abstract ViewModel proviewCategoryListViewModel (DrinkCategoryListViewModel drinkCategoryListViewModel);
+    @ViewModelKey(DrinkActivityViewModel.class)
+    public abstract ViewModel proviewDrinkActivityViewModel (DrinkActivityViewModel drinkActivityViewModel);
 
     @Binds
     @IntoMap
-    @ViewModelKey(DrinkListFragmentViewModel.class)
-    public abstract ViewModel proviewDrinkListFragmentViewModel (DrinkListFragmentViewModel drinkListFragmentViewModel);
+    @ViewModelKey(DrinkCategoryFragmentViewModel.class)
+    public abstract ViewModel proviewDrinkCategoryFragmentViewModel (DrinkCategoryFragmentViewModel drinkCategoryFragmentViewModel);
 
     @Binds
     @IntoMap

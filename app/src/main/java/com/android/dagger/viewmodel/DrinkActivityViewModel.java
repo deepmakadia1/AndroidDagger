@@ -14,12 +14,12 @@ import javax.inject.Inject;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DrinkCategoryListViewModel extends ViewModel {
+public class DrinkActivityViewModel extends ViewModel {
 
     DrinkRepository drinkRepository;
 
     @Inject
-    public DrinkCategoryListViewModel(DrinkRepository drinkRepository) {
+    public DrinkActivityViewModel(DrinkRepository drinkRepository) {
         this.drinkRepository = drinkRepository;
     }
 

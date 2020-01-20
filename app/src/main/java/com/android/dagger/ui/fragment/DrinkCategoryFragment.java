@@ -8,16 +8,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.android.dagger.R;
 import com.android.dagger.adapter.DrinksListAdapter;
 import com.android.dagger.databinding.FragmentDrinkCategoryBinding;
 import com.android.dagger.model.entity.DrinkListModel;
 import com.android.dagger.util.Constants;
-import com.android.dagger.viewmodel.DrinkListFragmentViewModel;
+import com.android.dagger.viewmodel.DrinkCategoryFragmentViewModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +25,7 @@ import javax.annotation.Nullable;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DrinkCategoryFragment extends BaseFragment<FragmentDrinkCategoryBinding, DrinkListFragmentViewModel> {
+public class DrinkCategoryFragment extends BaseFragment<FragmentDrinkCategoryBinding, DrinkCategoryFragmentViewModel> {
 
     private Context context;
     private HashMap<String,String> map = new HashMap<>();
@@ -52,8 +50,8 @@ public class DrinkCategoryFragment extends BaseFragment<FragmentDrinkCategoryBin
     }
 
     @Override
-    public Class<DrinkListFragmentViewModel> getViewModel() {
-        return DrinkListFragmentViewModel.class;
+    public Class<DrinkCategoryFragmentViewModel> getViewModel() {
+        return DrinkCategoryFragmentViewModel.class;
     }
 
     @Override

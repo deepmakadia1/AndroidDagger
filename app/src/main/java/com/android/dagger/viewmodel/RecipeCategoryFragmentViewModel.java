@@ -10,13 +10,13 @@ import javax.inject.Inject;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-public class CategoryFragmentViewModel extends ViewModel {
+public class RecipeCategoryFragmentViewModel extends ViewModel {
 
 
     private RecipeRepository recipeRepository;
 
     @Inject
-    public CategoryFragmentViewModel(RecipeRepository recipeRepository) {
+    public RecipeCategoryFragmentViewModel(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
     }
 

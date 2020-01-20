@@ -3,7 +3,7 @@ package com.android.dagger.di.modules;
 import com.android.dagger.di.annotation.ViewModelKey;
 import com.android.dagger.model.state.RecipeServiceInterface;
 import com.android.dagger.util.Constants;
-import com.android.dagger.viewmodel.CategoryFragmentViewModel;
+import com.android.dagger.viewmodel.RecipeCategoryFragmentViewModel;
 import com.android.dagger.viewmodel.DetailRecipeActivityViewModel;
 import com.android.dagger.viewmodel.RecipeActivityViewModel;
 
@@ -27,8 +27,8 @@ public abstract class RecipeViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(CategoryFragmentViewModel.class)
-    public abstract ViewModel proviewCategoryFragmentViewModel (CategoryFragmentViewModel categoryFragmentViewModel);
+    @ViewModelKey(RecipeCategoryFragmentViewModel.class)
+    public abstract ViewModel proviewRecipeCategoryFragmentViewModel (RecipeCategoryFragmentViewModel recipeCategoryFragmentViewModel);
 
     @Binds
     @IntoMap

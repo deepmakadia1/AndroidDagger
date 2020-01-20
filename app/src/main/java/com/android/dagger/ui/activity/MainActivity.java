@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.android.dagger.R;
-import com.android.dagger.databinding.ActivityCategoryListBinding;
 import com.android.dagger.databinding.ActivityMainBinding;
 
 public class MainActivity extends DaggerAppCompatActivity implements View.OnClickListener {
@@ -31,7 +30,7 @@ public class MainActivity extends DaggerAppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.drinks:
-                startActivity(new Intent(this, CategoryListActivity.class));
+                startActivity(new Intent(this, DrinkActivity.class));
                 break;
             case R.id.recipe:
                 startActivity(new Intent(this, RecipeActivity.class));
