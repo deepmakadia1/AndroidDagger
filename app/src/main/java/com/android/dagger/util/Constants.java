@@ -8,7 +8,6 @@ public class Constants {
     public static final String MEAL_ID = "meal_id";
     public static final String DRINK_ID = "drink_id";
     public static final String CATEGORY_FIELD_NAME = "category_field_name";
-    public static final String FILTER_NAME = "filter_name";
     public static final String LIST = "list";
     public static final String PARAM_C = "c";
     public static final String PARAM_G = "g";
