@@ -3,7 +3,7 @@ package com.android.dagger.di.modules;
 import com.android.dagger.di.annotation.ViewModelKey;
 import com.android.dagger.model.state.DrinkServiceInterface;
 import com.android.dagger.util.Constants;
-import com.android.dagger.viewmodel.DetailDrinkActivityViewModel;
+import com.android.dagger.viewmodel.DrinkDetailDialogViewModel;
 import com.android.dagger.viewmodel.DrinkActivityViewModel;
 import com.android.dagger.viewmodel.DrinkCategoryFragmentViewModel;
 
@@ -32,8 +32,8 @@ public abstract class DrinksViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(DetailDrinkActivityViewModel.class)
-    public abstract ViewModel proviewDetailDrinkActivityViewModel (DetailDrinkActivityViewModel detailDrinkActivityViewModel);
+    @ViewModelKey(DrinkDetailDialogViewModel.class)
+    public abstract ViewModel proviewDrinkDetailDialogViewModel (DrinkDetailDialogViewModel drinkDetailDialogViewModel);
 
 
     @Provides

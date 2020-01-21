@@ -1,10 +1,7 @@
 package com.android.dagger.viewmodel;
 
 import com.android.dagger.model.entity.DrinkCategoryListModel;
-import com.android.dagger.model.state.DrinkServiceInterface;
-import com.android.dagger.network.RXRetroManager;
 import com.android.dagger.repositories.DrinkRepository;
-import com.android.dagger.util.Constants;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,10 +13,10 @@ import androidx.lifecycle.ViewModel;
 
 public class DrinkActivityViewModel extends ViewModel {
 
-    DrinkRepository drinkRepository;
+    private DrinkRepository drinkRepository;
 
     @Inject
-    public DrinkActivityViewModel(DrinkRepository drinkRepository) {
+    DrinkActivityViewModel(DrinkRepository drinkRepository) {
         this.drinkRepository = drinkRepository;
     }
 

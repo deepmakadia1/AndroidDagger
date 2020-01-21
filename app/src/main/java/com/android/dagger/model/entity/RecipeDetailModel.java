@@ -31,8 +31,6 @@ public class RecipeDetailModel {
          * strSource : http://www.geniuskitchen.com/recipe/authentic-jamaican-brown-stew-chicken-347996
          */
 
-        @SerializedName("idMeal")
-        private String idMeal;
         @SerializedName("strMeal")
         private String strMeal;
         @SerializedName("strCategory")

@@ -16,7 +16,7 @@ public class RecipeActivityViewModel extends ViewModel {
     private RecipeRepository recipeRepository;
 
     @Inject
-    public RecipeActivityViewModel(RecipeRepository recipeRepository) {
+    RecipeActivityViewModel(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
     }
 

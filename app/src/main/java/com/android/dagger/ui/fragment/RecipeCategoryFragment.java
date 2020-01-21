@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.android.dagger.R;
 import com.android.dagger.adapter.RecipeListAdapter;
-import com.android.dagger.databinding.FragmentCategoryBinding;
+import com.android.dagger.databinding.FragmentRecipeCategoryBinding;
 import com.android.dagger.model.entity.RecipeModel;
 import com.android.dagger.util.Constants;
 import com.android.dagger.viewmodel.RecipeCategoryFragmentViewModel;
@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-public class RecipeCategoryFragment extends BaseFragment<FragmentCategoryBinding, RecipeCategoryFragmentViewModel>{
+public class RecipeCategoryFragment extends BaseFragment<FragmentRecipeCategoryBinding, RecipeCategoryFragmentViewModel>{
 
     private Context context;
 
@@ -37,7 +37,7 @@ public class RecipeCategoryFragment extends BaseFragment<FragmentCategoryBinding
 
     @Override
     public int getLayout() {
-        return R.layout.fragment_category;
+        return R.layout.fragment_recipe_category;
     }
 
     @Override
@@ -76,7 +76,7 @@ public class RecipeCategoryFragment extends BaseFragment<FragmentCategoryBinding
 
     private void setRecyclerView(List<RecipeModel.Recipe> recipes) {
 
-        RecipeListAdapter recipeListAdapter = new RecipeListAdapter(context, recipes);
+        RecipeListAdapter recipeListAdapter = new RecipeListAdapter(getFragmentManager(), recipes);
         binding.listRecipe.setLayoutManager(new LinearLayoutManager(context));
         binding.listRecipe.setAdapter(recipeListAdapter);
 

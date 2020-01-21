@@ -15,9 +15,9 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
-import dagger.android.support.DaggerFragment;
+import dagger.android.support.DaggerAppCompatDialogFragment;
 
-public abstract class BaseFragment<T extends ViewDataBinding, V extends ViewModel> extends DaggerFragment {
+public abstract class BaseFragment<T extends ViewDataBinding, V extends ViewModel> extends DaggerAppCompatDialogFragment {
 
     public abstract int getLayout();
 
@@ -27,7 +27,7 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends ViewMode
 
     public T binding;
 
-    public V viewModel;
+    V viewModel;
 
     @Inject
     ViewModelProviderFactory factory;

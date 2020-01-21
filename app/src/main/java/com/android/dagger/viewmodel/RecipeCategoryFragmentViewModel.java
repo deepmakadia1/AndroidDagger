@@ -16,7 +16,7 @@ public class RecipeCategoryFragmentViewModel extends ViewModel {
     private RecipeRepository recipeRepository;
 
     @Inject
-    public RecipeCategoryFragmentViewModel(RecipeRepository recipeRepository) {
+    RecipeCategoryFragmentViewModel(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
     }
 

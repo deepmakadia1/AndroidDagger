@@ -32,14 +32,10 @@ public class DrinkDetailModel {
          * strInstructions : Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.
          */
 
-        @SerializedName("idDrink")
-        private String idDrink;
         @SerializedName("strDrink")
         private String strDrink;
         @SerializedName("strTags")
         private String strTags;
-        @SerializedName("strVideo")
-        private Object strVideo;
         @SerializedName("strCategory")
         private String strCategory;
         @SerializedName("strAlcoholic")

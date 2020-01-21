@@ -10,7 +10,6 @@ import com.android.dagger.model.entity.DrinkCategoryListModel;
 import com.android.dagger.ui.fragment.DrinkCategoryFragment;
 import com.android.dagger.util.Constants;
 import com.android.dagger.viewmodel.DrinkActivityViewModel;
-import com.github.clans.fab.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +24,6 @@ public class DrinkActivity extends BaseActivity<ActivityDrinkBinding, DrinkActiv
     private HashMap<String, String> map = new HashMap<>();
     private CustomPagerAdapter pagerAdapter;
     private String fieldName = "";
-    private ArrayList<FloatingActionButton> floatingActionButtons = new ArrayList<>();
 
     @Override
     public int getLayout() {
@@ -41,7 +39,6 @@ public class DrinkActivity extends BaseActivity<ActivityDrinkBinding, DrinkActiv
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pagerAdapter = new CustomPagerAdapter(getSupportFragmentManager());
-        fillFABs();
         viewModel.getProgress().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean aBoolean) {
@@ -58,16 +55,6 @@ public class DrinkActivity extends BaseActivity<ActivityDrinkBinding, DrinkActiv
         binding.menuSort.setClosedOnTouchOutside(true);
         binding.menuSort.setIconAnimated(false);
         setListeners();
-    }
-
-    private void fillFABs() {
-
-        floatingActionButtons.clear();
-        floatingActionButtons.add(binding.menuCategory);
-        floatingActionButtons.add(binding.menuGlasses);
-        floatingActionButtons.add(binding.menuIngredients);
-        floatingActionButtons.add(binding.menuAlcoholic);
-
     }
 
     private void setListeners() {

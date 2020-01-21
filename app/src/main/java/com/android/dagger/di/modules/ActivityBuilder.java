@@ -1,10 +1,10 @@
 package com.android.dagger.di.modules;
 
 import com.android.dagger.di.providers.DrinkCategoryFragmentProvider;
+import com.android.dagger.di.providers.DrinkDetailDialogProvider;
 import com.android.dagger.di.providers.RecipeCategoryFragmentProvider;
+import com.android.dagger.di.providers.RecipeDetailDialogProvider;
 import com.android.dagger.ui.activity.DrinkActivity;
-import com.android.dagger.ui.activity.DetailDrinksActivity;
-import com.android.dagger.ui.activity.DetailRecipeActivity;
 import com.android.dagger.ui.activity.RecipeActivity;
 import com.android.dagger.ui.activity.MainActivity;
 
@@ -17,15 +17,18 @@ public abstract class ActivityBuilder {
     @ContributesAndroidInjector
     abstract MainActivity mainActivity();
 
-    @ContributesAndroidInjector(modules = {DrinksViewModelModule.class, DrinkCategoryFragmentProvider.class})
+    @ContributesAndroidInjector(modules = {
+            DrinksViewModelModule.class,
+            DrinkCategoryFragmentProvider.class,
+            DrinkDetailDialogProvider.class
+    })
     abstract DrinkActivity drinkActivity();
 
-    @ContributesAndroidInjector(modules = {DrinksViewModelModule.class})
-    abstract DetailDrinksActivity detailDrinksActivity();
-
-    @ContributesAndroidInjector(modules = {RecipeViewModelModule.class, RecipeCategoryFragmentProvider.class})
+    @ContributesAndroidInjector(modules = {
+            RecipeViewModelModule.class,
+            RecipeCategoryFragmentProvider.class,
+            RecipeDetailDialogProvider.class
+    })
     abstract RecipeActivity recipeActivity();
 
-    @ContributesAndroidInjector(modules = RecipeViewModelModule.class)
-    abstract DetailRecipeActivity detailRecipeActivity();
 }

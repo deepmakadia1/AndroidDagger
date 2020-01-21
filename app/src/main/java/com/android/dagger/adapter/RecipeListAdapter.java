@@ -1,7 +1,5 @@
 package com.android.dagger.adapter;
 
-import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,22 +7,22 @@ import android.view.ViewGroup;
 import com.android.dagger.R;
 import com.android.dagger.databinding.ItemRecipeBinding;
 import com.android.dagger.model.entity.RecipeModel;
-import com.android.dagger.ui.activity.DetailRecipeActivity;
-import com.android.dagger.util.Constants;
+import com.android.dagger.ui.dialog.RecipeDetailDialog;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RecipeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<RecipeModel.Recipe> meals;
-    private Context context;
+    private FragmentManager manager;
 
-    public RecipeListAdapter(Context context, List<RecipeModel.Recipe> meals) {
-        this.context = context;
+    public RecipeListAdapter(FragmentManager manager, List<RecipeModel.Recipe> meals) {
+        this.manager = manager;
         this.meals = meals;
     }
 
@@ -58,7 +56,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    context.startActivity(new Intent(context, DetailRecipeActivity.class).putExtra(Constants.MEAL_ID, meals.get(getAdapterPosition()).getIdMeal()));
+                    RecipeDetailDialog.newInstance(meals.get(getAdapterPosition()).getIdMeal()).showDialog(manager,RecipeDetailDialog.class.getName());
                 }
             });
         }

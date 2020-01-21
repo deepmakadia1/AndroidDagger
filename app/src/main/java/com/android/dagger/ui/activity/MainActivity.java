@@ -13,14 +13,11 @@ import com.android.dagger.databinding.ActivityMainBinding;
 
 public class MainActivity extends DaggerAppCompatActivity implements View.OnClickListener {
 
-    private ActivityMainBinding binding;
-    private Activity activity;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activity = this;
-        binding = DataBindingUtil.setContentView(activity, R.layout.activity_main);
+        Activity activity = this;
+        ActivityMainBinding binding = DataBindingUtil.setContentView(activity, R.layout.activity_main);
 
         binding.recipe.setOnClickListener(this);
         binding.drinks.setOnClickListener(this);

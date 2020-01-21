@@ -11,12 +11,12 @@ import javax.inject.Inject;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DetailDrinkActivityViewModel extends ViewModel {
+public class DrinkDetailDialogViewModel extends ViewModel {
 
     private DrinkRepository drinkRepository;
 
     @Inject
-    public DetailDrinkActivityViewModel(DrinkRepository drinkRepository) {
+    DrinkDetailDialogViewModel(DrinkRepository drinkRepository) {
         this.drinkRepository = drinkRepository;
     }
 

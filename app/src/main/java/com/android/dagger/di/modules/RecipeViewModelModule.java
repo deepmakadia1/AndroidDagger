@@ -4,7 +4,7 @@ import com.android.dagger.di.annotation.ViewModelKey;
 import com.android.dagger.model.state.RecipeServiceInterface;
 import com.android.dagger.util.Constants;
 import com.android.dagger.viewmodel.RecipeCategoryFragmentViewModel;
-import com.android.dagger.viewmodel.DetailRecipeActivityViewModel;
+import com.android.dagger.viewmodel.RecipeDetailDialogViewModel;
 import com.android.dagger.viewmodel.RecipeActivityViewModel;
 
 import androidx.lifecycle.ViewModel;
@@ -32,8 +32,8 @@ public abstract class RecipeViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(DetailRecipeActivityViewModel.class)
-    public abstract ViewModel proviewDetailRecipeActivityViewModel (DetailRecipeActivityViewModel detailRecipeActivityViewModel);
+    @ViewModelKey(RecipeDetailDialogViewModel.class)
+    public abstract ViewModel proviewRecipeDetailDialogViewModel (RecipeDetailDialogViewModel recipeDetailDialogViewModel);
 
     @Provides
     static Retrofit provideRecipeRetrofit(GsonConverterFactory gsonConverterFactory, RxJava2CallAdapterFactory rxJava2CallAdapterFactory, OkHttpClient okHttpClient) {

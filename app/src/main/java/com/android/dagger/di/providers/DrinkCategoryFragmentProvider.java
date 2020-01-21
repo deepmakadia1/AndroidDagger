@@ -8,7 +8,7 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class DrinkCategoryFragmentProvider {
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = {RecipeDetailDialogProvider.class})
     abstract DrinkCategoryFragment drinkCategoryFragment();
 
 }

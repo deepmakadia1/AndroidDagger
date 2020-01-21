@@ -1,6 +1,5 @@
 package com.android.dagger.adapter;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +7,6 @@ import javax.annotation.Nullable;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class CustomPagerAdapter extends FragmentStatePagerAdapter{

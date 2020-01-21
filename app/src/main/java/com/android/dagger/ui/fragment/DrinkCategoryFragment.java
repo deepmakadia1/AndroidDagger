@@ -86,7 +86,7 @@ public class DrinkCategoryFragment extends BaseFragment<FragmentDrinkCategoryBin
 
     private void setRecyclerView(ArrayList<DrinkListModel.Drinks> drinks) {
 
-        DrinksListAdapter drinksListAdapter =  new DrinksListAdapter(context,drinks);
+        DrinksListAdapter drinksListAdapter =  new DrinksListAdapter(getFragmentManager(),drinks);
         binding.listDrinks.setLayoutManager(new LinearLayoutManager(context));
         binding.listDrinks.setAdapter(drinksListAdapter);
 

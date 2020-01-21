@@ -1,4 +1,4 @@
-package com.android.dagger.util;
+package com.android.dagger.adapter;
 
 import android.widget.ImageView;
 

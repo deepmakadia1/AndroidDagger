@@ -17,7 +17,7 @@ public class DrinkCategoryFragmentViewModel extends ViewModel {
     private DrinkRepository drinkRepository;
 
     @Inject
-    public DrinkCategoryFragmentViewModel(DrinkRepository drinkRepository) {
+    DrinkCategoryFragmentViewModel(DrinkRepository drinkRepository) {
         this.drinkRepository = drinkRepository;
     }
 
