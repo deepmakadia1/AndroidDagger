@@ -11,6 +11,8 @@ import com.android.dagger.ui.dialog.RecipeDetailDialog;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentManager;
@@ -21,9 +23,14 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private List<RecipeModel.Recipe> meals;
     private FragmentManager manager;
 
-    public RecipeListAdapter(FragmentManager manager, List<RecipeModel.Recipe> meals) {
+    @Inject
+    public RecipeListAdapter(FragmentManager manager) {
         this.manager = manager;
+    }
+
+    public void addItems( List<RecipeModel.Recipe> meals){
         this.meals = meals;
+        notifyDataSetChanged();
     }
 
     @NonNull

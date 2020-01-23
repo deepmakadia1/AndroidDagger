@@ -1,7 +1,6 @@
 package com.android.dagger.ui.fragment;
 
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -21,14 +20,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.annotation.Nullable;
+import javax.inject.Inject;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class DrinkCategoryFragment extends BaseFragment<FragmentDrinkCategoryBinding, DrinkCategoryFragmentViewModel> {
 
-    private Context context;
     private HashMap<String,String> map = new HashMap<>();
+
+    @Inject
+    DrinksListAdapter drinksListAdapter;
+
+    @Inject
+    LinearLayoutManager linearLayoutManager;
 
     public static DrinkCategoryFragment newInstance(String categoryName,String categoryFieldName) {
         DrinkCategoryFragment drinkCategoryFragment = new DrinkCategoryFragment();
@@ -59,7 +64,7 @@ public class DrinkCategoryFragment extends BaseFragment<FragmentDrinkCategoryBin
 
         String categoryName = getArguments() != null ? getArguments().getString(Constants.DRINK_CATEGORY_NAME) : null;
         String categoryFieldName = getArguments() != null ? getArguments().getString(Constants.CATEGORY_FIELD_NAME) : null;
-
+        setRecyclerView();
         viewModel.getProsess().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean aBoolean) {
@@ -78,23 +83,16 @@ public class DrinkCategoryFragment extends BaseFragment<FragmentDrinkCategoryBin
         viewModel.getDrinks(map).observe(this, new Observer<ArrayList<DrinkListModel.Drinks>>() {
             @Override
             public void onChanged(@Nullable ArrayList<DrinkListModel.Drinks> drinks) {
-                setRecyclerView(drinks);
+                drinksListAdapter.addItems(drinks);
             }
         });
 
     }
 
-    private void setRecyclerView(ArrayList<DrinkListModel.Drinks> drinks) {
+    private void setRecyclerView() {
 
-        DrinksListAdapter drinksListAdapter =  new DrinksListAdapter(getFragmentManager(),drinks);
-        binding.listDrinks.setLayoutManager(new LinearLayoutManager(context));
+        binding.listDrinks.setLayoutManager(linearLayoutManager);
         binding.listDrinks.setAdapter(drinksListAdapter);
 
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context = context;
     }
 }

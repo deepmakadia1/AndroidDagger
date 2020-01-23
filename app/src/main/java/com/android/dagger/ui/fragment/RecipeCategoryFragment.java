@@ -1,6 +1,5 @@
 package com.android.dagger.ui.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,13 +13,19 @@ import com.android.dagger.viewmodel.RecipeCategoryFragmentViewModel;
 import java.util.List;
 
 import javax.annotation.Nullable;
+import javax.inject.Inject;
 
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 public class RecipeCategoryFragment extends BaseFragment<FragmentRecipeCategoryBinding, RecipeCategoryFragmentViewModel>{
 
-    private Context context;
+
+    @Inject
+    RecipeListAdapter recipeListAdapter;
+
+    @Inject
+    LinearLayoutManager linearLayoutManager;
 
     public RecipeCategoryFragment() {
         // Required empty public constructor
@@ -50,7 +55,7 @@ public class RecipeCategoryFragment extends BaseFragment<FragmentRecipeCategoryB
     public void onCreateView() {
 
         String categoryName = getArguments() != null ? getArguments().getString(Constants.RECIPE_CATEGORY_NAME) : null;
-
+        setRecyclerView();
         viewModel.getProgress().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean aBoolean) {
@@ -67,25 +72,18 @@ public class RecipeCategoryFragment extends BaseFragment<FragmentRecipeCategoryB
         viewModel.getRecipeList(categoryName).observe(this, new Observer<List<RecipeModel.Recipe>>() {
             @Override
             public void onChanged(@Nullable List<RecipeModel.Recipe> recipes) {
-                setRecyclerView(recipes);
+                recipeListAdapter.addItems(recipes);
             }
         });
 
     }
 
 
-    private void setRecyclerView(List<RecipeModel.Recipe> recipes) {
+    private void setRecyclerView() {
 
-        RecipeListAdapter recipeListAdapter = new RecipeListAdapter(getFragmentManager(), recipes);
-        binding.listRecipe.setLayoutManager(new LinearLayoutManager(context));
+        binding.listRecipe.setLayoutManager(linearLayoutManager);
         binding.listRecipe.setAdapter(recipeListAdapter);
 
     }
 
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context = context;
-    }
 }

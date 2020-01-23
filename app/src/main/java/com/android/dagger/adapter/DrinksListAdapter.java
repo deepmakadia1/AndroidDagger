@@ -11,6 +11,8 @@ import com.android.dagger.ui.dialog.DrinkDetailDialog;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentManager;
@@ -21,9 +23,14 @@ public class DrinksListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private List<DrinkListModel.Drinks> drinks;
     private FragmentManager manager;
 
-    public DrinksListAdapter(FragmentManager manager, List<DrinkListModel.Drinks> drinks) {
+    @Inject
+    public DrinksListAdapter(FragmentManager manager) {
         this.manager = manager;
+    }
+
+    public void addItems(List<DrinkListModel.Drinks> drinks){
         this.drinks = drinks;
+        notifyDataSetChanged();
     }
 
     @NonNull
