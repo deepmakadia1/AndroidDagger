@@ -3,11 +3,10 @@ package com.android.dagger.di.modules;
 import com.android.dagger.adapter.RecipeListAdapter;
 import com.android.dagger.di.qualifier.HorizontalLayoutQualifier;
 import com.android.dagger.di.qualifier.VerticalLayoutQualifier;
-import com.android.dagger.ui.fragment.DrinkCategoryFragment;
 import com.android.dagger.ui.fragment.RecipeCategoryFragment;
+import com.android.dagger.util.Constants;
 
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import dagger.Module;
 import dagger.Provides;
 
@@ -21,14 +20,14 @@ public class RecipeCategoryFragmentModule {
 
     @Provides
     @VerticalLayoutQualifier
-    GridLayoutManager provideVerticalLayoutQualifier(RecipeCategoryFragment recipeCategoryFragment){
-        return new GridLayoutManager(recipeCategoryFragment.getContext(),1);
+    GridLayoutManager provideVerticalLayoutQualifier(RecipeCategoryFragment recipeCategoryFragment) {
+        return new GridLayoutManager(recipeCategoryFragment.getContext(), Constants.SPAN_VERTICAL);
     }
 
     @Provides
     @HorizontalLayoutQualifier
-    GridLayoutManager provideHorizontalLayoutQualifier(RecipeCategoryFragment recipeCategoryFragment){
-        return new GridLayoutManager(recipeCategoryFragment.getContext(),2);
+    GridLayoutManager provideHorizontalLayoutQualifier(RecipeCategoryFragment recipeCategoryFragment) {
+        return new GridLayoutManager(recipeCategoryFragment.getContext(), Constants.SPAN_HORIZONTAL);
     }
 
 }

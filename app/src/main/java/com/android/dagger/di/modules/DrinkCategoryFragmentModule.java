@@ -4,9 +4,9 @@ import com.android.dagger.adapter.DrinksListAdapter;
 import com.android.dagger.di.qualifier.HorizontalLayoutQualifier;
 import com.android.dagger.di.qualifier.VerticalLayoutQualifier;
 import com.android.dagger.ui.fragment.DrinkCategoryFragment;
+import com.android.dagger.util.Constants;
 
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import dagger.Module;
 import dagger.Provides;
 
@@ -21,13 +21,13 @@ public class DrinkCategoryFragmentModule {
     @Provides
     @VerticalLayoutQualifier
     GridLayoutManager provideVerticalLayoutQualifier(DrinkCategoryFragment drinkCategoryFragment){
-        return new GridLayoutManager(drinkCategoryFragment.getContext(),1);
+        return new GridLayoutManager(drinkCategoryFragment.getContext(), Constants.SPAN_VERTICAL);
     }
 
     @Provides
     @HorizontalLayoutQualifier
     GridLayoutManager provideHorizontalLayoutQualifier(DrinkCategoryFragment drinkCategoryFragment){
-        return new GridLayoutManager(drinkCategoryFragment.getContext(),2);
+        return new GridLayoutManager(drinkCategoryFragment.getContext(),Constants.SPAN_HORIZONTAL);
     }
 
 }

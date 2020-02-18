@@ -13,4 +13,6 @@ public class Constants {
     public static final String PARAM_G = "g";
     public static final String PARAM_I = "i";
     public static final String PARAM_A = "a";
+    public static final int SPAN_VERTICAL = 1;
+    public static final int SPAN_HORIZONTAL = 2;
 }
