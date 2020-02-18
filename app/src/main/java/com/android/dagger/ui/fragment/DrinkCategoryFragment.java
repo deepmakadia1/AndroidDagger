@@ -1,17 +1,20 @@
 package com.android.dagger.ui.fragment;
 
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.View;
 
 import com.android.dagger.R;
 import com.android.dagger.adapter.DrinksListAdapter;
 import com.android.dagger.databinding.FragmentDrinkCategoryBinding;
+import com.android.dagger.di.qualifier.HorizontalLayoutQualifier;
+import com.android.dagger.di.qualifier.VerticalLayoutQualifier;
 import com.android.dagger.model.entity.DrinkListModel;
 import com.android.dagger.util.Constants;
 import com.android.dagger.viewmodel.DrinkCategoryFragmentViewModel;
@@ -27,15 +30,20 @@ import javax.inject.Inject;
  */
 public class DrinkCategoryFragment extends BaseFragment<FragmentDrinkCategoryBinding, DrinkCategoryFragmentViewModel> {
 
-    private HashMap<String,String> map = new HashMap<>();
+    private HashMap<String, String> map = new HashMap<>();
 
     @Inject
     DrinksListAdapter drinksListAdapter;
 
     @Inject
-    LinearLayoutManager linearLayoutManager;
+    @VerticalLayoutQualifier
+    GridLayoutManager gridVerticalLayoutManager;
 
-    public static DrinkCategoryFragment newInstance(String categoryName,String categoryFieldName) {
+    @Inject
+    @HorizontalLayoutQualifier
+    GridLayoutManager gridHorizontalLayoutManager;
+
+    public static DrinkCategoryFragment newInstance(String categoryName, String categoryFieldName) {
         DrinkCategoryFragment drinkCategoryFragment = new DrinkCategoryFragment();
         Bundle args = new Bundle();
         args.putString(Constants.DRINK_CATEGORY_NAME, categoryName);
@@ -79,8 +87,8 @@ public class DrinkCategoryFragment extends BaseFragment<FragmentDrinkCategoryBin
         });
 
         map.clear();
-        map.put(categoryFieldName,categoryName);
-        viewModel.getDrinks(map).observe(this, new Observer<ArrayList<DrinkListModel.Drinks>>() {
+        map.put(categoryFieldName, categoryName);
+        viewModel.getDrinks(map).observe(getViewLifecycleOwner(), new Observer<ArrayList<DrinkListModel.Drinks>>() {
             @Override
             public void onChanged(@Nullable ArrayList<DrinkListModel.Drinks> drinks) {
                 drinksListAdapter.addItems(drinks);
@@ -91,8 +99,22 @@ public class DrinkCategoryFragment extends BaseFragment<FragmentDrinkCategoryBin
 
     private void setRecyclerView() {
 
-        binding.listDrinks.setLayoutManager(linearLayoutManager);
+        if (getActivity() != null && getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            binding.listDrinks.setLayoutManager(gridHorizontalLayoutManager);
+        } else {
+            binding.listDrinks.setLayoutManager(gridVerticalLayoutManager);
+        }
         binding.listDrinks.setAdapter(drinksListAdapter);
 
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            binding.listDrinks.setLayoutManager(gridHorizontalLayoutManager);
+        } else {
+            binding.listDrinks.setLayoutManager(gridVerticalLayoutManager);
+        }
     }
 }

@@ -29,7 +29,7 @@ public abstract class BaseDialog<T extends ViewDataBinding, V extends ViewModel>
 
     public abstract Class<V> getViewModel();
 
-    public T binding;
+    T binding;
 
     V viewModel;
 

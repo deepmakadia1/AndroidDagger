@@ -25,7 +25,7 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends ViewMode
 
     public abstract void onCreateView();
 
-    public T binding;
+    T binding;
 
     V viewModel;
 

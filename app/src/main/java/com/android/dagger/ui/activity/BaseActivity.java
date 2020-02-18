@@ -21,9 +21,9 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends ViewMode
 
     public abstract Class<V> getViewModel();
 
-    public T binding;
+    T binding;
 
-    public V viewModel;
+    V viewModel;
 
     private ProgressDialog progressDialog;
 
@@ -38,7 +38,7 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends ViewMode
         binding = DataBindingUtil.setContentView(activity, getLayout());
 
         if (getViewModel() != null) {
-            viewModel = ViewModelProviders.of(this,factory).get(getViewModel());
+            viewModel = ViewModelProviders.of(this, factory).get(getViewModel());
         }
 
         progressDialog = new ProgressDialog(this);

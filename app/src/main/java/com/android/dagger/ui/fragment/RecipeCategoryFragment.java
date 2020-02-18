@@ -1,11 +1,14 @@
 package com.android.dagger.ui.fragment;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 
 import com.android.dagger.R;
 import com.android.dagger.adapter.RecipeListAdapter;
 import com.android.dagger.databinding.FragmentRecipeCategoryBinding;
+import com.android.dagger.di.qualifier.HorizontalLayoutQualifier;
+import com.android.dagger.di.qualifier.VerticalLayoutQualifier;
 import com.android.dagger.model.entity.RecipeModel;
 import com.android.dagger.util.Constants;
 import com.android.dagger.viewmodel.RecipeCategoryFragmentViewModel;
@@ -16,6 +19,7 @@ import javax.annotation.Nullable;
 import javax.inject.Inject;
 
 import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 public class RecipeCategoryFragment extends BaseFragment<FragmentRecipeCategoryBinding, RecipeCategoryFragmentViewModel>{
@@ -25,7 +29,12 @@ public class RecipeCategoryFragment extends BaseFragment<FragmentRecipeCategoryB
     RecipeListAdapter recipeListAdapter;
 
     @Inject
-    LinearLayoutManager linearLayoutManager;
+    @VerticalLayoutQualifier
+    GridLayoutManager gridVerticalLayoutManager;
+
+    @Inject
+    @HorizontalLayoutQualifier
+    GridLayoutManager gridHorizontalLayoutManager;
 
     public RecipeCategoryFragment() {
         // Required empty public constructor
@@ -69,7 +78,7 @@ public class RecipeCategoryFragment extends BaseFragment<FragmentRecipeCategoryB
             }
         });
 
-        viewModel.getRecipeList(categoryName).observe(this, new Observer<List<RecipeModel.Recipe>>() {
+        viewModel.getRecipeList(categoryName).observe(getViewLifecycleOwner(), new Observer<List<RecipeModel.Recipe>>() {
             @Override
             public void onChanged(@Nullable List<RecipeModel.Recipe> recipes) {
                 recipeListAdapter.addItems(recipes);
@@ -81,9 +90,23 @@ public class RecipeCategoryFragment extends BaseFragment<FragmentRecipeCategoryB
 
     private void setRecyclerView() {
 
-        binding.listRecipe.setLayoutManager(linearLayoutManager);
+        if (getActivity() != null && getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            binding.listRecipe.setLayoutManager(gridHorizontalLayoutManager);
+        } else {
+            binding.listRecipe.setLayoutManager(gridVerticalLayoutManager);
+        }
         binding.listRecipe.setAdapter(recipeListAdapter);
 
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            binding.listRecipe.setLayoutManager(gridHorizontalLayoutManager);
+        } else {
+            binding.listRecipe.setLayoutManager(gridVerticalLayoutManager);
+        }
     }
 
 }
