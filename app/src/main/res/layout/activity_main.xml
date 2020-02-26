@@ -21,7 +21,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/recipe"
-                android:textSize="@dimen/recipe_title_text_size" />
+                android:textSize="@dimen/title_text_size" />
 
         </androidx.cardview.widget.CardView>
 
@@ -37,7 +37,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/drinks"
-                android:textSize="@dimen/recipe_title_text_size" />
+                android:textSize="@dimen/title_text_size" />
 
         </androidx.cardview.widget.CardView>
 
