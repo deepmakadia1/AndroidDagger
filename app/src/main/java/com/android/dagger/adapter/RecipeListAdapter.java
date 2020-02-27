@@ -9,6 +9,7 @@ import com.android.dagger.databinding.ItemRecipeBinding;
 import com.android.dagger.model.entity.RecipeModel;
 import com.android.dagger.ui.dialog.RecipeDetailDialog;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -20,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class RecipeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<RecipeModel.Recipe> meals;
+    private List<RecipeModel.Recipe> meals = new ArrayList<>();
     private FragmentManager manager;
 
     @Inject

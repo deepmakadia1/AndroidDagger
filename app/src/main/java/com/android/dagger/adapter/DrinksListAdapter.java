@@ -9,6 +9,7 @@ import com.android.dagger.databinding.ItemDrinksBinding;
 import com.android.dagger.model.entity.DrinkListModel;
 import com.android.dagger.ui.dialog.DrinkDetailDialog;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -20,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class DrinksListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<DrinkListModel.Drinks> drinks;
+    private List<DrinkListModel.Drinks> drinks = new ArrayList<>();
     private FragmentManager manager;
 
     @Inject
