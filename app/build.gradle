@@ -33,6 +33,7 @@ dependencies {
     def rxJavaVersion = "2.1.8"
     def okHttp3Version = "3.11.0"
     def okHttpVersion = "2.7.3"
+    def scalableLib = "1.0.6"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -88,4 +89,8 @@ dependencies {
 
     //fab button
     implementation 'com.github.clans:fab:1.6.4'
+
+    //scalable lib
+    implementation "com.intuit.sdp:sdp-android:$scalableLib"
+    implementation "com.intuit.ssp:ssp-android:$scalableLib"
 }
