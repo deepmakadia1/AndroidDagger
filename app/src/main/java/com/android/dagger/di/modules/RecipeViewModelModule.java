@@ -23,17 +23,17 @@ public abstract class RecipeViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(RecipeActivityViewModel.class)
-    public abstract ViewModel proviewRecipeActivityViewModel (RecipeActivityViewModel recipeActivityViewModel);
+    public abstract ViewModel provideRecipeActivityViewModel (RecipeActivityViewModel recipeActivityViewModel);
 
     @Binds
     @IntoMap
     @ViewModelKey(RecipeCategoryFragmentViewModel.class)
-    public abstract ViewModel proviewRecipeCategoryFragmentViewModel (RecipeCategoryFragmentViewModel recipeCategoryFragmentViewModel);
+    public abstract ViewModel provideRecipeCategoryFragmentViewModel (RecipeCategoryFragmentViewModel recipeCategoryFragmentViewModel);
 
     @Binds
     @IntoMap
     @ViewModelKey(RecipeDetailDialogViewModel.class)
-    public abstract ViewModel proviewRecipeDetailDialogViewModel (RecipeDetailDialogViewModel recipeDetailDialogViewModel);
+    public abstract ViewModel provideRecipeDetailDialogViewModel (RecipeDetailDialogViewModel recipeDetailDialogViewModel);
 
     @Provides
     static Retrofit provideRecipeRetrofit(GsonConverterFactory gsonConverterFactory, RxJava2CallAdapterFactory rxJava2CallAdapterFactory, OkHttpClient okHttpClient) {

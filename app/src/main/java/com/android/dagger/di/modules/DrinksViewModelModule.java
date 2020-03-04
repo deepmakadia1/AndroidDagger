@@ -23,17 +23,17 @@ public abstract class DrinksViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(DrinkActivityViewModel.class)
-    public abstract ViewModel proviewDrinkActivityViewModel (DrinkActivityViewModel drinkActivityViewModel);
+    public abstract ViewModel provideDrinkActivityViewModel (DrinkActivityViewModel drinkActivityViewModel);
 
     @Binds
     @IntoMap
     @ViewModelKey(DrinkCategoryFragmentViewModel.class)
-    public abstract ViewModel proviewDrinkCategoryFragmentViewModel (DrinkCategoryFragmentViewModel drinkCategoryFragmentViewModel);
+    public abstract ViewModel provideDrinkCategoryFragmentViewModel (DrinkCategoryFragmentViewModel drinkCategoryFragmentViewModel);
 
     @Binds
     @IntoMap
     @ViewModelKey(DrinkDetailDialogViewModel.class)
-    public abstract ViewModel proviewDrinkDetailDialogViewModel (DrinkDetailDialogViewModel drinkDetailDialogViewModel);
+    public abstract ViewModel provideDrinkDetailDialogViewModel (DrinkDetailDialogViewModel drinkDetailDialogViewModel);
 
 
     @Provides
